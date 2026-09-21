@@ -21,7 +21,7 @@ let tasks = [];
 function saveTasks() {
   // localStorage can only store strings, so we convert our array to a JSON string
   localStorage.setItem("myTodoTasks", JSON.stringify(tasks));
-}
+  {
 
 // Load tasks from localStorage when the page first opens
 function loadTasks() {
