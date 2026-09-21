@@ -1,0 +1,37 @@
+# This workflow runs automatically whenever code is pushed to the main branch.
+# It performs simple checks to make sure our project files are valid.
+
+name: CI - Check To-Do App
+
+# This tells GitHub WHEN to run this workflow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest   # GitHub gives us a fresh Linux computer to run checks on
+
+    steps:
+      # Step 1: Download our repository's code onto that computer
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Check that our required files actually exist
+      - name: Check required files exist
+        run: |
+          echo "Checking that all required files are present..."
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          echo "All required files found!"
+
+      # Step 3: Install Node.js so we can check our JavaScript for syntax errors
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Step 4: Check that script.js has no syntax errors
+      - name: Check JavaScript syntax
+        run: node --check script.js
