@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- This makes the page look good on phones too -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My To-Do List</title>
+
+  <!-- Link to our CSS file for styling -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Main container that holds the whole app -->
+  <div class="app-container">
+
+    <h1>My To-Do List</h1>
+
+    <!-- Input area: text box + Add button -->
+    <div class="input-area">
+      <input type="text" id="taskInput" placeholder="Add a new task..." />
+      <button id="addTaskBtn">Add</button>
+    </div>
+
+    <!-- This is where all the tasks will be displayed -->
+    <ul id="taskList"></ul>
+
+    <!-- Button to remove all completed tasks at once -->
+    <button id="clearCompletedBtn" class="clear-btn">Clear Completed</button>
+
+  </div>
+
+  <!-- Link to our JavaScript file. It goes at the bottom so the HTML loads first. -->
+  <script src="script.js"></script>
+</body>
+</html>
